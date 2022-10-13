@@ -41,8 +41,33 @@ string[] inputdata = Console.ReadLine().Split();
 int a = int.Parse(inputdata[0]);
 int b = int.Parse(inputdata[1]);
 int s = Task66(a,b);
-Console.Write("сумму натуральных чисел в промежутке от " + a + " до " + b + " равна " + s);
+Console.WriteLine("сумма натуральных чисел в промежутке от " + a + " до " + b + " равна " + s);
+Console.WriteLine();
 
+
+/*
+Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+    m = 2, n = 3 -> A(m,n) = 9
+    m = 3, n = 2 -> A(m,n) = 29
+*/
+
+int Task68(int m, int n)
+{
+    if (m == 0)
+        return n + 1;
+    if (n == 0)
+        return Task68(m-1,1);
+    return Task68(m-1,Task68(m,n-1));
+}
+
+Console.WriteLine("ЗАДАЧА 68");
+Console.Write("Введите два неотрицательных числа m и n через пробел ");
+string[] data = Console.ReadLine().Split();
+int x = int.Parse(data[0]);
+int y = int.Parse(data[1]);
+int akk = Task68(x,y);
+Console.WriteLine("A(" + x + ", " + y + ") = " + akk);
+Console.WriteLine();
 
 
 
